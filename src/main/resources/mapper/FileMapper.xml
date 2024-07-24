@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.com4in.itsm.mapper.FileMapper">
+
+    <insert id="insertFile" parameterType="com.com4in.itsm.dto.FileDto">
+        INSERT
+			INTO
+		FILE (
+			uuid
+			, file_name
+			, file_type
+			, file_path
+			, file_size
+			, file_full_name
+			, create_id
+			, create_date
+		) VALUES (
+			#{uuid}
+			, #{file_name}
+			, #{file_type}
+			, #{file_path}
+			, #{file_size}
+			, #{file_full_name}
+			, #{session_id}
+			, DATE_FORMAT(NOW(), '%Y-%m-%d %H:%i:%s')
+		)
+    </insert>
+
+    <update id="updateFile" parameterType="com.com4in.itsm.dto.FileDto">
+        UPDATE
+            FILE
+        SET
+            board_uuid = #{board_uuid}
+			, incident_uuid = #{incident_uuid}
+			, create_id = #{create_id}
+			, update_id = #{update_id}
+			, update_date = DATE_FORMAT(NOW(), '%Y-%m-%d %H:%i:%s')
+        WHERE
+            uuid = #{uuid}
+    </update>
+
+	<select id="getBoardFile" resultType="com.com4in.itsm.dto.FileDto">
+            select
+                *
+            FROM
+                FILE
+            WHERE
+				board_uuid = #{uuid}
+
+    </select>
+
+	<select id="getIncidentFile" resultType="com.com4in.itsm.dto.FileDto">
+            select
+                *
+            FROM
+                FILE
+            WHERE
+				incident_uuid = #{uuid}
+
+    </select>
+
+	<select id="getFileDownload" resultType="com.com4in.itsm.dto.FileDto">
+            select
+                *
+            FROM
+                FILE
+            WHERE
+				uuid = #{uuid}
+    </select>
+
+    <delete id="deleteFile" parameterType="com.com4in.itsm.dto.FileDto">
+        DELETE
+        FROM
+            FILE
+        WHERE
+            uuid = #{uuid}
+    </delete>
+
+
+</mapper>

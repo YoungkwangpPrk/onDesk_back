@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.com4in.itsm.mapper.DashBoardMapper">
+
+    <select id="getModuleCount" resultType="com.com4in.itsm.dto.DashBoardDto">
+        SELECT
+            module
+            , COUNT(*) AS module_count
+            , (SELECT
+                    COUNT(*)
+                    FROM
+                        INCIDENT
+                    WHERE
+                        company_account = #{company_account }
+                        AND status_code != '60'
+                        AND date_format(create_date, '%Y') = date_format(NOW(), '%Y')) AS all_count
+        FROM
+            INCIDENT i
+        WHERE
+            company_account = #{company_account}
+            AND i.status_code != '60'
+            AND date_format(i.create_date, '%Y') = date_format(NOW(), '%Y')
+        GROUP BY module;
+    </select>
+
+    <select id="getStatusCount" resultType="com.com4in.itsm.dto.DashBoardDto">
+            select
+                i.status_code
+                , COUNT(*) AS status_count
+                , (SELECT
+                    COUNT(*)
+                    FROM
+                        INCIDENT
+                    WHERE
+                        company_account = #{company_account }
+                        AND status_code != '60'
+                        AND date_format(create_date, '%Y') = date_format(NOW(), '%Y')) AS all_count
+            FROM
+                INCIDENT i
+            WHERE
+                i.company_account = #{company_account}
+                AND i.status_code != '60'
+                AND date_format(i.create_date, '%Y') = date_format(NOW(), '%Y')
+            GROUP BY status_code;
+    </select>
+
+</mapper>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.com4in.itsm.mapper.MailTemplateMapper">
+
+    <insert id="insertMailTemplate" parameterType="com.com4in.itsm.dto.MailTemplateDto">
+        INSERT
+			INTO
+		FILE (
+			uuid
+			, title
+			, content
+			, status_code
+			, create_id
+			, create_date
+			, upadate_id
+			, update_date
+		) VALUES (
+			#{uuid}
+			, #{title}
+			, #{content}
+			, #{status_code}
+			, #{session_id}
+			, DATE_FORMAT(NOW(), '%Y-%m-%d %H:%i:%s')
+			, #{session_id}
+			, DATE_FORMAT(NOW(), '%Y-%m-%d %H:%i:%s')
+		)
+    </insert>
+
+    <select id="getMailTemplateList" resultType="com.com4in.itsm.dto.MailTemplateDto">
+            SELECT
+                m.* ,
+                c.label as status_name
+            FROM
+                MAIL_TEMPLATE m
+                INNER JOIN
+                    COMMON_CODE c ON m.status_code = c.sub_code
+            GROUP BY status_code
+            ORDER BY status_code ASC
+    </select>
+
+    <select id="getMailTemplateDetail" resultType="com.com4in.itsm.dto.MailTemplateDto">
+            SELECT
+                m.* ,
+                c.label as status_name
+            FROM
+                MAIL_TEMPLATE m
+                INNER JOIN
+                    COMMON_CODE c ON m.status_code = c.sub_code
+            WHERE
+                m.uuid = #{uuid}
+            GROUP BY status_code
+    </select>
+
+    <select id="getMailTemplateStatus" resultType="com.com4in.itsm.dto.MailTemplateDto">
+            SELECT
+                *
+            FROM
+                MAIL_TEMPLATE
+            WHERE
+                status_code = #{status_code}
+    </select>
+
+    <update id="updateMailTemplateDetail" parameterType="com.com4in.itsm.dto.MailTemplateDto">
+        UPDATE
+            MAIL_TEMPLATE
+        SET
+            title = #{title}
+			, content = #{content}
+			, update_id = #{session_id}
+			, update_date = DATE_FORMAT(NOW(), '%Y-%m-%d %H:%i:%s')
+        WHERE
+            uuid = #{uuid}
+    </update>
+
+    <insert id="getMailToDB" parameterType="com.com4in.itsm.dto.MailingDto">
+        INSERT
+			INTO
+		MAIL_TEST (
+		    test_mail,
+		    test_name
+		) VALUES (
+			#{test_mail},
+			#{test_name}
+		)
+    </insert>
+
+</mapper>

@@ -1,0 +1,111 @@
+[2023-08-08 14:55:00:648][main] INFO  com.com4in.itsm.ItsmApplication - Starting ItsmApplication using Java 11.0.17 on DESKTOP-L0NBJRL with PID 11852 (D:\com4in\back\itsm\build\classes\java\main started by ykPark in D:\com4in\back\itsm)
+[2023-08-08 14:55:00:648][main] INFO  com.com4in.itsm.ItsmApplication - No active profile set, falling back to 1 default profile: "default"
+[2023-08-08 14:55:01:1781][main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$9647e73e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2023-08-08 14:55:01:1820][main] WARN  o.s.xml.DocumentBuilderFactoryUtils - http://javax.xml.XMLConstants/property/accessExternalDTD property not supported by org.apache.xerces.jaxp.DocumentBuilderFactoryImpl
+[2023-08-08 14:55:01:1820][main] WARN  o.s.xml.DocumentBuilderFactoryUtils - http://javax.xml.XMLConstants/property/accessExternalSchema property not supported by org.apache.xerces.jaxp.DocumentBuilderFactoryImpl
+[2023-08-08 14:55:01:1851][main] INFO  o.s.w.s.a.s.AnnotationActionEndpointMapping - Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+[2023-08-08 14:55:01:2152][main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8887 (http)
+[2023-08-08 14:55:01:2168][main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8887"]
+[2023-08-08 14:55:01:2168][main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+[2023-08-08 14:55:01:2168][main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+[2023-08-08 14:55:01:2306][main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[2023-08-08 14:55:01:2306][main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1611 ms
+[2023-08-08 14:55:02:3139][main] INFO  o.s.s.w.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2aa07d80, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@69c1ea07, org.springframework.security.web.context.SecurityContextPersistenceFilter@5f1f0ee6, org.springframework.security.web.header.HeaderWriterFilter@55c46ec1, org.springframework.web.filter.CorsFilter@5cbe72b9, org.springframework.security.web.authentication.logout.LogoutFilter@fd14789, com.com4in.itsm.jwt.JwtFilter@27fc0217, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@25df2014, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@73234691, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@76fc5687, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@53fbb2b4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@e993715, org.springframework.security.web.session.SessionManagementFilter@6ae6d078, org.springframework.security.web.access.ExceptionTranslationFilter@3f1d6a13, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@34bddf43]
+[2023-08-08 14:55:02:3271][main] WARN  o.s.x.t.TransformerFactoryUtils - http://javax.xml.XMLConstants/property/accessExternalDTD property not supported by org.apache.xalan.processor.TransformerFactoryImpl
+[2023-08-08 14:55:02:3271][main] WARN  o.s.x.t.TransformerFactoryUtils - http://javax.xml.XMLConstants/property/accessExternalStylesheet property not supported by org.apache.xalan.processor.TransformerFactoryImpl
+[2023-08-08 14:55:02:3309][main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8887"]
+[2023-08-08 14:55:03:3324][main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8887 (http) with context path ''
+[2023-08-08 14:55:03:3625][main] INFO  com.com4in.itsm.ItsmApplication - Started ItsmApplication in 3.473 seconds (JVM running for 5.019)
+[2023-08-08 14:55:16:16620][http-nio-8887-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2023-08-08 14:55:16:16620][http-nio-8887-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[2023-08-08 14:55:16:16620][http-nio-8887-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+[2023-08-08 14:55:16:16704][http-nio-8887-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2023-08-08 14:55:16:16758][http-nio-8887-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2023-08-08 14:55:16:16773][http-nio-8887-exec-1] INFO  jdbc.sqltiming - SELECT
+            A.uuid,
+            A.name,
+            A.email,
+            A.password,
+            A.company_account,
+            A.user_id ,
+            B.company_name,
+            A.comforin_manager
+        FROM
+            USER_LIST A
+            LEFT JOIN COMPANY B ON B.company_account = A.company_account
+        WHERE A.email= 'yk.park@com4in.com'
+        ORDER BY A.create_date DESC
+ {executed in 0 msec}
+[2023-08-08 14:55:16:16773][http-nio-8887-exec-1] INFO  jdbc.resultsettable - 
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|uuid                                 |name |email              |password                                                     |company_account |user_id |company_name |comforin_manager |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|c64ce725-6fb1-490e-ac10-6f592b2eced7 |박영광  |yk.park@com4in.com |$2a$10$EyOKMz67nPQ54Sm0Z9ktberIiJWKRAPeYINkFQZ79K1FIRVK05.q2 |com4in          |null    |null         |null             |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+
+[2023-08-08 14:55:16:16874][http-nio-8887-exec-1] INFO  jdbc.sqltiming - SELECT
+            A.uuid,
+            A.name,
+            A.email,
+            A.password,
+            A.company_account,
+            A.user_id ,
+            B.company_name,
+            A.comforin_manager
+        FROM
+            USER_LIST A
+            LEFT JOIN COMPANY B ON B.company_account = A.company_account
+        WHERE A.email= 'yk.park@com4in.com'
+        ORDER BY A.create_date DESC
+ {executed in 0 msec}
+[2023-08-08 14:55:16:16874][http-nio-8887-exec-1] INFO  jdbc.resultsettable - 
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|uuid                                 |name |email              |password                                                     |company_account |user_id |company_name |comforin_manager |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|c64ce725-6fb1-490e-ac10-6f592b2eced7 |박영광  |yk.park@com4in.com |$2a$10$EyOKMz67nPQ54Sm0Z9ktberIiJWKRAPeYINkFQZ79K1FIRVK05.q2 |com4in          |null    |null         |null             |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+
+[2023-08-08 14:55:17:17476][http-nio-8887-exec-2] INFO  jdbc.sqltiming - /**********getIssueList**********/
+        SELECT
+            i.uuid,
+            i.title,
+            i.company_account,
+            i.req_level,
+            i.inquirer,
+            i.manager,
+            i.comp_req_date,
+            i.comp_date,
+            i.module,
+            i.create_id,
+            date_format(i.create_date, '%Y-%m-%d' ) as create_date,
+            i.update_id,
+            i.update_date,
+            i.req_type,
+            i.inquirer_email,
+            i.status_code,
+            (SELECT label FROM COMMON_CODE WHERE main_code ='A01' AND sub_code = i.status_code) AS status,
+            i.time_taken,
+            c.company_name,
+            u.name as manager_name
+        FROM
+            INCIDENT i
+            INNER JOIN
+                COMPANY c ON c.company_account=i.company_account
+            LEFT JOIN
+                USER_LIST u ON u.email = i.manager
+        WHERE
+            1=1
+            AND status_code != '60'
+
+                AND i.company_account ='bighitenteT1'
+
+            ORDER BY i.create_date DESC
+ {executed in 16 msec}
+[2023-08-08 14:55:17:17476][http-nio-8887-exec-2] INFO  jdbc.resultsettable - 
+|-------------------------------------|------|----------------|----------|---------|-------------------|--------------|-----------|-------|--------------|------------|--------------|------------|---------|---------------|------------|-------|-----------|-------------|-----|
+|uuid                                 |title |company_account |req_level |inquirer |manager            |comp_req_date |comp_date  |module |create_id     |create_date |update_id     |update_date |req_type |inquirer_email |status_code |status |time_taken |company_name |name |
+|-------------------------------------|------|----------------|----------|---------|-------------------|--------------|-----------|-------|--------------|------------|--------------|------------|---------|---------------|------------|-------|-----------|-------------|-----|
+|6333ab9e-365d-4549-a086-b40ae8ab905c |test  |bighitenteT1    |보통(5일)    |테스트      |yk.park@com4in.com |2023-08-15    |2023-08-08 |EC     |test@user.com |2023-08-08  |test@user.com |[unread]    |권한관리     |test@user.com  |50          |처리완료   |00:30      |하이브          |박영광  |
+|-------------------------------------|------|----------------|----------|---------|-------------------|--------------|-----------|-------|--------------|------------|--------------|------------|---------|---------------|------------|-------|-----------|-------------|-----|
+
+[2023-08-08 16:00:47:3947855][HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m49ms41µs900ns).

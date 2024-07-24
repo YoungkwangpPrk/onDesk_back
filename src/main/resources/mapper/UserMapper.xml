@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.com4in.itsm.mapper.UserMapper">
+
+    <select id="getUserList" resultType="com.com4in.itsm.dto.UserDto">
+        SELECT
+            a.*
+        FROM
+            USER_LIST a
+        WHERE
+            a.company_account = #{company_account}
+        ORDER BY a.name ASC
+    </select>
+
+
+    <insert id="createUser" parameterType="com.com4in.itsm.dto.UserDto">
+        INSERT
+        INTO
+            USER_LIST (
+                uuid
+                , name
+                , email
+                , password
+                , leader
+                , company_account
+                , role
+                , user_id
+                , comforin_manager
+                , create_id
+                , create_date
+            ) VALUES (
+                #{uuid}
+                , #{name}
+                , #{email}
+                , #{password}
+                , #{leader}
+                , #{company_account}
+                , #{role}
+                , #{user_id}
+                , #{comforin_manager}
+                , #{session_id}
+                , date_format(NOW(), '%Y-%m-%d' )
+            )
+    </insert>
+
+    <update id="updateUser" parameterType="com.com4in.itsm.dto.UserDto">
+        UPDATE
+            USER_LIST
+        SET
+            name = #{name}
+            , email = #{email}
+            , password = #{password}
+            , user_id = #{user_id}
+            , leader = #{leader}
+            , update_date = date_format(NOW(), '%Y-%m-%d' )
+            , update_id = #{session_id}
+            , company_account = #{company_account}
+            , comforin_manager= #{comforin_manager}
+            , role = #{role}
+        WHERE
+            1=1
+            <if test="uuid != null and uuid !=''">
+                AND uuid =#{uuid}
+            </if>
+    </update>
+
+    <delete id="deleteUser" parameterType="com.com4in.itsm.dto.UserDto">
+        DELETE
+        FROM
+            USER_LIST
+         WHERE
+            uuid = #{uuid}
+    </delete>
+
+    <select id="getCompany" resultType="com.com4in.itsm.dto.CompanyDto">
+        SELECT
+            *
+        FROM
+            COMPANY
+        WHERE
+            company_account= #{company_account}
+    </select>
+
+    <select id="getPersonID" resultType="com.com4in.itsm.dto.UserDto">
+        SELECT
+            A.uuid,
+            A.name,
+            A.email,
+            A.password,
+            A.company_account,
+            A.user_id ,
+            B.company_name,
+            A.comforin_manager
+        FROM
+            USER_LIST A
+            LEFT JOIN COMPANY B ON B.company_account = A.company_account
+        WHERE A.email= #{email}
+        ORDER BY A.create_date DESC
+    </select>
+
+    <delete id="deleteCompanyUser" parameterType="com.com4in.itsm.dto.UserDto">
+        DELETE
+        FROM
+            USER_LIST
+         WHERE
+            company_account= #{company_account}
+    </delete>
+
+</mapper>

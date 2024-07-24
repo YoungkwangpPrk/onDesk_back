@@ -1,0 +1,801 @@
+[2023-08-04 17:05:16:746][main] INFO  com.com4in.itsm.ItsmApplication - Starting ItsmApplication using Java 11.0.17 on DESKTOP-L0NBJRL with PID 12136 (D:\com4in\back\itsm\build\classes\java\main started by ykPark in D:\com4in\back\itsm)
+[2023-08-04 17:05:16:753][main] INFO  com.com4in.itsm.ItsmApplication - No active profile set, falling back to 1 default profile: "default"
+[2023-08-04 17:05:17:2099][main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$8ad9c60c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2023-08-04 17:05:17:2125][main] WARN  o.s.xml.DocumentBuilderFactoryUtils - http://javax.xml.XMLConstants/property/accessExternalDTD property not supported by org.apache.xerces.jaxp.DocumentBuilderFactoryImpl
+[2023-08-04 17:05:17:2126][main] WARN  o.s.xml.DocumentBuilderFactoryUtils - http://javax.xml.XMLConstants/property/accessExternalSchema property not supported by org.apache.xerces.jaxp.DocumentBuilderFactoryImpl
+[2023-08-04 17:05:17:2168][main] INFO  o.s.w.s.a.s.AnnotationActionEndpointMapping - Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+[2023-08-04 17:05:18:2507][main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8887 (http)
+[2023-08-04 17:05:18:2517][main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8887"]
+[2023-08-04 17:05:18:2517][main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+[2023-08-04 17:05:18:2518][main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+[2023-08-04 17:05:18:2639][main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[2023-08-04 17:05:18:2640][main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1844 ms
+[2023-08-04 17:05:19:3480][main] INFO  o.s.s.w.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@22a63740, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@211da640, org.springframework.security.web.context.SecurityContextPersistenceFilter@1bb4c431, org.springframework.security.web.header.HeaderWriterFilter@1c792107, org.springframework.web.filter.CorsFilter@2ec92631, org.springframework.security.web.authentication.logout.LogoutFilter@356f20b7, com.com4in.itsm.jwt.JwtFilter@76220ef1, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2474df51, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@4654e373, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@295d54d6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@398f0516, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@65ad2b42, org.springframework.security.web.session.SessionManagementFilter@68479e8b, org.springframework.security.web.access.ExceptionTranslationFilter@2248d140, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6143b2b1]
+[2023-08-04 17:05:19:3650][main] WARN  o.s.x.t.TransformerFactoryUtils - http://javax.xml.XMLConstants/property/accessExternalDTD property not supported by org.apache.xalan.processor.TransformerFactoryImpl
+[2023-08-04 17:05:19:3650][main] WARN  o.s.x.t.TransformerFactoryUtils - http://javax.xml.XMLConstants/property/accessExternalStylesheet property not supported by org.apache.xalan.processor.TransformerFactoryImpl
+[2023-08-04 17:05:19:3708][main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8887"]
+[2023-08-04 17:05:19:3730][main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8887 (http) with context path ''
+[2023-08-04 17:05:19:4115][main] INFO  com.com4in.itsm.ItsmApplication - Started ItsmApplication in 3.883 seconds (JVM running for 5.414)
+[2023-08-04 17:06:09:53973][http-nio-8887-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2023-08-04 17:06:09:53975][http-nio-8887-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[2023-08-04 17:06:09:53976][http-nio-8887-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+[2023-08-04 17:06:09:54095][http-nio-8887-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2023-08-04 17:06:09:54161][http-nio-8887-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2023-08-04 17:06:09:54176][http-nio-8887-exec-1] INFO  jdbc.sqltiming - SELECT
+            A.uuid,
+            A.name,
+            A.email,
+            A.password,
+            A.company_account,
+            A.user_id ,
+            B.company_name,
+            A.comforin_manager
+        FROM
+            USER_LIST A
+            LEFT JOIN COMPANY B ON B.company_account = A.company_account
+        WHERE A.email= 'yk.park@com4in.com'
+        ORDER BY A.create_date DESC
+ {executed in 3 msec}
+[2023-08-04 17:06:09:54189][http-nio-8887-exec-1] INFO  jdbc.resultsettable - 
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|uuid                                 |name |email              |password                                                     |company_account |user_id |company_name |comforin_manager |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|c64ce725-6fb1-490e-ac10-6f592b2eced7 |박영광  |yk.park@com4in.com |$2a$10$EyOKMz67nPQ54Sm0Z9ktberIiJWKRAPeYINkFQZ79K1FIRVK05.q2 |com4in          |null    |null         |null             |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+
+[2023-08-04 17:06:09:54304][http-nio-8887-exec-1] INFO  jdbc.sqltiming - SELECT
+            A.uuid,
+            A.name,
+            A.email,
+            A.password,
+            A.company_account,
+            A.user_id ,
+            B.company_name,
+            A.comforin_manager
+        FROM
+            USER_LIST A
+            LEFT JOIN COMPANY B ON B.company_account = A.company_account
+        WHERE A.email= 'yk.park@com4in.com'
+        ORDER BY A.create_date DESC
+ {executed in 4 msec}
+[2023-08-04 17:06:09:54304][http-nio-8887-exec-1] INFO  jdbc.resultsettable - 
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|uuid                                 |name |email              |password                                                     |company_account |user_id |company_name |comforin_manager |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|c64ce725-6fb1-490e-ac10-6f592b2eced7 |박영광  |yk.park@com4in.com |$2a$10$EyOKMz67nPQ54Sm0Z9ktberIiJWKRAPeYINkFQZ79K1FIRVK05.q2 |com4in          |null    |null         |null             |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+
+[2023-08-04 17:06:10:54925][http-nio-8887-exec-2] INFO  jdbc.sqltiming - /**********getIssueList**********/
+        SELECT
+            i.uuid,
+            i.title,
+            i.company_account,
+            i.req_level,
+            i.inquirer,
+            i.manager,
+            i.comp_req_date,
+            i.comp_date,
+            i.module,
+            i.create_id,
+            date_format(i.create_date, '%Y-%m-%d' ) as create_date,
+            i.update_id,
+            i.update_date,
+            i.req_type,
+            i.inquirer_email,
+            i.status_code,
+            (SELECT label FROM COMMON_CODE WHERE main_code ='A01' AND sub_code = i.status_code) AS status,
+            i.time_taken,
+            c.company_name,
+            u.name as manager_name
+        FROM
+            INCIDENT i
+            INNER JOIN
+                COMPANY c ON c.company_account=i.company_account
+            LEFT JOIN
+                USER_LIST u ON u.email = i.manager
+        WHERE
+            1=1
+            AND status_code != '60'
+
+                AND i.company_account ='bighitenteT1'
+
+            ORDER BY i.create_date DESC
+ {executed in 5 msec}
+[2023-08-04 17:06:10:54926][http-nio-8887-exec-2] INFO  jdbc.resultsettable - 
+|-----|------|----------------|----------|---------|--------|--------------|----------|-------|----------|------------|----------|------------|---------|---------------|------------|-------|-----------|-------------|-----|
+|uuid |title |company_account |req_level |inquirer |manager |comp_req_date |comp_date |module |create_id |create_date |update_id |update_date |req_type |inquirer_email |status_code |status |time_taken |company_name |name |
+|-----|------|----------------|----------|---------|--------|--------------|----------|-------|----------|------------|----------|------------|---------|---------------|------------|-------|-----------|-------------|-----|
+|-----|------|----------------|----------|---------|--------|--------------|----------|-------|----------|------------|----------|------------|---------|---------------|------------|-------|-----------|-------------|-----|
+
+[2023-08-04 17:06:31:76012][http-nio-8887-exec-3] INFO  jdbc.sqltiming - SELECT
+            A.uuid,
+            A.name,
+            A.email,
+            A.password,
+            A.company_account,
+            A.user_id ,
+            B.company_name,
+            A.comforin_manager
+        FROM
+            USER_LIST A
+            LEFT JOIN COMPANY B ON B.company_account = A.company_account
+        WHERE A.email= 'yk.park@com4in.com'
+        ORDER BY A.create_date DESC
+ {executed in 4 msec}
+[2023-08-04 17:06:31:76013][http-nio-8887-exec-3] INFO  jdbc.resultsettable - 
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|uuid                                 |name |email              |password                                                     |company_account |user_id |company_name |comforin_manager |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|c64ce725-6fb1-490e-ac10-6f592b2eced7 |박영광  |yk.park@com4in.com |$2a$10$EyOKMz67nPQ54Sm0Z9ktberIiJWKRAPeYINkFQZ79K1FIRVK05.q2 |com4in          |null    |null         |null             |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+
+[2023-08-04 17:06:31:76020][http-nio-8887-exec-3] INFO  jdbc.sqltiming - SELECT
+            A.uuid,
+            A.name,
+            A.email,
+            A.password,
+            A.company_account,
+            A.user_id ,
+            B.company_name,
+            A.comforin_manager
+        FROM
+            USER_LIST A
+            LEFT JOIN COMPANY B ON B.company_account = A.company_account
+        WHERE A.email= 'yk.park@com4in.com'
+        ORDER BY A.create_date DESC
+ {executed in 4 msec}
+[2023-08-04 17:06:31:76021][http-nio-8887-exec-3] INFO  jdbc.resultsettable - 
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|uuid                                 |name |email              |password                                                     |company_account |user_id |company_name |comforin_manager |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|c64ce725-6fb1-490e-ac10-6f592b2eced7 |박영광  |yk.park@com4in.com |$2a$10$EyOKMz67nPQ54Sm0Z9ktberIiJWKRAPeYINkFQZ79K1FIRVK05.q2 |com4in          |null    |null         |null             |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+
+[2023-08-04 17:06:32:76602][http-nio-8887-exec-4] INFO  jdbc.sqltiming - /**********getIssueList**********/
+        SELECT
+            i.uuid,
+            i.title,
+            i.company_account,
+            i.req_level,
+            i.inquirer,
+            i.manager,
+            i.comp_req_date,
+            i.comp_date,
+            i.module,
+            i.create_id,
+            date_format(i.create_date, '%Y-%m-%d' ) as create_date,
+            i.update_id,
+            i.update_date,
+            i.req_type,
+            i.inquirer_email,
+            i.status_code,
+            (SELECT label FROM COMMON_CODE WHERE main_code ='A01' AND sub_code = i.status_code) AS status,
+            i.time_taken,
+            c.company_name,
+            u.name as manager_name
+        FROM
+            INCIDENT i
+            INNER JOIN
+                COMPANY c ON c.company_account=i.company_account
+            LEFT JOIN
+                USER_LIST u ON u.email = i.manager
+        WHERE
+            1=1
+            AND status_code != '60'
+
+                AND i.company_account ='bighitenteT1'
+
+            ORDER BY i.create_date DESC
+ {executed in 5 msec}
+[2023-08-04 17:06:32:76604][http-nio-8887-exec-4] INFO  jdbc.resultsettable - 
+|-----|------|----------------|----------|---------|--------|--------------|----------|-------|----------|------------|----------|------------|---------|---------------|------------|-------|-----------|-------------|-----|
+|uuid |title |company_account |req_level |inquirer |manager |comp_req_date |comp_date |module |create_id |create_date |update_id |update_date |req_type |inquirer_email |status_code |status |time_taken |company_name |name |
+|-----|------|----------------|----------|---------|--------|--------------|----------|-------|----------|------------|----------|------------|---------|---------------|------------|-------|-----------|-------------|-----|
+|-----|------|----------------|----------|---------|--------|--------------|----------|-------|----------|------------|----------|------------|---------|---------------|------------|-------|-----------|-------------|-----|
+
+[2023-08-04 17:08:26:191280][http-nio-8887-exec-6] INFO  jdbc.sqltiming - SELECT
+            A.uuid,
+            A.name,
+            A.email,
+            A.password,
+            A.company_account,
+            A.user_id ,
+            B.company_name,
+            A.comforin_manager
+        FROM
+            USER_LIST A
+            LEFT JOIN COMPANY B ON B.company_account = A.company_account
+        WHERE A.email= 'yk.park@com4in.com'
+        ORDER BY A.create_date DESC
+ {executed in 4 msec}
+[2023-08-04 17:08:26:191283][http-nio-8887-exec-6] INFO  jdbc.resultsettable - 
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|uuid                                 |name |email              |password                                                     |company_account |user_id |company_name |comforin_manager |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|c64ce725-6fb1-490e-ac10-6f592b2eced7 |박영광  |yk.park@com4in.com |$2a$10$EyOKMz67nPQ54Sm0Z9ktberIiJWKRAPeYINkFQZ79K1FIRVK05.q2 |com4in          |null    |null         |null             |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+
+[2023-08-04 17:08:26:191310][http-nio-8887-exec-6] INFO  jdbc.sqltiming - SELECT
+            A.uuid,
+            A.name,
+            A.email,
+            A.password,
+            A.company_account,
+            A.user_id ,
+            B.company_name,
+            A.comforin_manager
+        FROM
+            USER_LIST A
+            LEFT JOIN COMPANY B ON B.company_account = A.company_account
+        WHERE A.email= 'yk.park@com4in.com'
+        ORDER BY A.create_date DESC
+ {executed in 15 msec}
+[2023-08-04 17:08:26:191311][http-nio-8887-exec-6] INFO  jdbc.resultsettable - 
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|uuid                                 |name |email              |password                                                     |company_account |user_id |company_name |comforin_manager |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|c64ce725-6fb1-490e-ac10-6f592b2eced7 |박영광  |yk.park@com4in.com |$2a$10$EyOKMz67nPQ54Sm0Z9ktberIiJWKRAPeYINkFQZ79K1FIRVK05.q2 |com4in          |null    |null         |null             |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+
+[2023-08-04 17:08:27:192084][http-nio-8887-exec-7] INFO  jdbc.sqltiming - /**********getIssueList**********/
+        SELECT
+            i.uuid,
+            i.title,
+            i.company_account,
+            i.req_level,
+            i.inquirer,
+            i.manager,
+            i.comp_req_date,
+            i.comp_date,
+            i.module,
+            i.create_id,
+            date_format(i.create_date, '%Y-%m-%d' ) as create_date,
+            i.update_id,
+            i.update_date,
+            i.req_type,
+            i.inquirer_email,
+            i.status_code,
+            (SELECT label FROM COMMON_CODE WHERE main_code ='A01' AND sub_code = i.status_code) AS status,
+            i.time_taken,
+            c.company_name,
+            u.name as manager_name
+        FROM
+            INCIDENT i
+            INNER JOIN
+                COMPANY c ON c.company_account=i.company_account
+            LEFT JOIN
+                USER_LIST u ON u.email = i.manager
+        WHERE
+            1=1
+            AND status_code != '60'
+
+                AND i.company_account ='bighitenteT1'
+
+            ORDER BY i.create_date DESC
+ {executed in 4 msec}
+[2023-08-04 17:08:27:192085][http-nio-8887-exec-7] INFO  jdbc.resultsettable - 
+|-----|------|----------------|----------|---------|--------|--------------|----------|-------|----------|------------|----------|------------|---------|---------------|------------|-------|-----------|-------------|-----|
+|uuid |title |company_account |req_level |inquirer |manager |comp_req_date |comp_date |module |create_id |create_date |update_id |update_date |req_type |inquirer_email |status_code |status |time_taken |company_name |name |
+|-----|------|----------------|----------|---------|--------|--------------|----------|-------|----------|------------|----------|------------|---------|---------------|------------|-------|-----------|-------------|-----|
+|-----|------|----------------|----------|---------|--------|--------------|----------|-------|----------|------------|----------|------------|---------|---------------|------------|-------|-----------|-------------|-----|
+
+[2023-08-04 17:14:31:555924][http-nio-8887-exec-9] INFO  jdbc.sqltiming - SELECT
+            A.uuid,
+            A.name,
+            A.email,
+            A.password,
+            A.company_account,
+            A.user_id ,
+            B.company_name,
+            A.comforin_manager
+        FROM
+            USER_LIST A
+            LEFT JOIN COMPANY B ON B.company_account = A.company_account
+        WHERE A.email= 'yk.park@com4in.com'
+        ORDER BY A.create_date DESC
+ {executed in 4 msec}
+[2023-08-04 17:14:31:555926][http-nio-8887-exec-9] INFO  jdbc.resultsettable - 
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|uuid                                 |name |email              |password                                                     |company_account |user_id |company_name |comforin_manager |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|c64ce725-6fb1-490e-ac10-6f592b2eced7 |박영광  |yk.park@com4in.com |$2a$10$EyOKMz67nPQ54Sm0Z9ktberIiJWKRAPeYINkFQZ79K1FIRVK05.q2 |com4in          |null    |null         |null             |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+
+[2023-08-04 17:14:31:555932][http-nio-8887-exec-9] INFO  jdbc.sqltiming - SELECT
+            A.uuid,
+            A.name,
+            A.email,
+            A.password,
+            A.company_account,
+            A.user_id ,
+            B.company_name,
+            A.comforin_manager
+        FROM
+            USER_LIST A
+            LEFT JOIN COMPANY B ON B.company_account = A.company_account
+        WHERE A.email= 'yk.park@com4in.com'
+        ORDER BY A.create_date DESC
+ {executed in 4 msec}
+[2023-08-04 17:14:31:555933][http-nio-8887-exec-9] INFO  jdbc.resultsettable - 
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|uuid                                 |name |email              |password                                                     |company_account |user_id |company_name |comforin_manager |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|c64ce725-6fb1-490e-ac10-6f592b2eced7 |박영광  |yk.park@com4in.com |$2a$10$EyOKMz67nPQ54Sm0Z9ktberIiJWKRAPeYINkFQZ79K1FIRVK05.q2 |com4in          |null    |null         |null             |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+
+[2023-08-04 17:15:08:592458][http-nio-8887-exec-10] INFO  jdbc.sqltiming - SELECT
+            A.uuid,
+            A.name,
+            A.email,
+            A.password,
+            A.company_account,
+            A.user_id ,
+            B.company_name,
+            A.comforin_manager
+        FROM
+            USER_LIST A
+            LEFT JOIN COMPANY B ON B.company_account = A.company_account
+        WHERE A.email= 'yk.park@com4in.com'
+        ORDER BY A.create_date DESC
+ {executed in 5 msec}
+[2023-08-04 17:15:08:592461][http-nio-8887-exec-10] INFO  jdbc.resultsettable - 
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|uuid                                 |name |email              |password                                                     |company_account |user_id |company_name |comforin_manager |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|c64ce725-6fb1-490e-ac10-6f592b2eced7 |박영광  |yk.park@com4in.com |$2a$10$EyOKMz67nPQ54Sm0Z9ktberIiJWKRAPeYINkFQZ79K1FIRVK05.q2 |com4in          |null    |null         |null             |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+
+[2023-08-04 17:15:08:592470][http-nio-8887-exec-10] INFO  jdbc.sqltiming - SELECT
+            A.uuid,
+            A.name,
+            A.email,
+            A.password,
+            A.company_account,
+            A.user_id ,
+            B.company_name,
+            A.comforin_manager
+        FROM
+            USER_LIST A
+            LEFT JOIN COMPANY B ON B.company_account = A.company_account
+        WHERE A.email= 'yk.park@com4in.com'
+        ORDER BY A.create_date DESC
+ {executed in 3 msec}
+[2023-08-04 17:15:08:592471][http-nio-8887-exec-10] INFO  jdbc.resultsettable - 
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|uuid                                 |name |email              |password                                                     |company_account |user_id |company_name |comforin_manager |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|c64ce725-6fb1-490e-ac10-6f592b2eced7 |박영광  |yk.park@com4in.com |$2a$10$EyOKMz67nPQ54Sm0Z9ktberIiJWKRAPeYINkFQZ79K1FIRVK05.q2 |com4in          |null    |null         |null             |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+
+[2023-08-04 17:33:11:1675707][http-nio-8887-exec-2] INFO  jdbc.sqltiming - SELECT
+            A.uuid,
+            A.name,
+            A.email,
+            A.password,
+            A.company_account,
+            A.user_id ,
+            B.company_name,
+            A.comforin_manager
+        FROM
+            USER_LIST A
+            LEFT JOIN COMPANY B ON B.company_account = A.company_account
+        WHERE A.email= 'yk.park@com4in.com'
+        ORDER BY A.create_date DESC
+ {executed in 3 msec}
+[2023-08-04 17:33:11:1675708][http-nio-8887-exec-2] INFO  jdbc.resultsettable - 
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|uuid                                 |name |email              |password                                                     |company_account |user_id |company_name |comforin_manager |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|c64ce725-6fb1-490e-ac10-6f592b2eced7 |박영광  |yk.park@com4in.com |$2a$10$EyOKMz67nPQ54Sm0Z9ktberIiJWKRAPeYINkFQZ79K1FIRVK05.q2 |com4in          |null    |null         |null             |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+
+[2023-08-04 17:33:11:1675713][http-nio-8887-exec-2] INFO  jdbc.sqltiming - SELECT
+            A.uuid,
+            A.name,
+            A.email,
+            A.password,
+            A.company_account,
+            A.user_id ,
+            B.company_name,
+            A.comforin_manager
+        FROM
+            USER_LIST A
+            LEFT JOIN COMPANY B ON B.company_account = A.company_account
+        WHERE A.email= 'yk.park@com4in.com'
+        ORDER BY A.create_date DESC
+ {executed in 3 msec}
+[2023-08-04 17:33:11:1675714][http-nio-8887-exec-2] INFO  jdbc.resultsettable - 
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|uuid                                 |name |email              |password                                                     |company_account |user_id |company_name |comforin_manager |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|c64ce725-6fb1-490e-ac10-6f592b2eced7 |박영광  |yk.park@com4in.com |$2a$10$EyOKMz67nPQ54Sm0Z9ktberIiJWKRAPeYINkFQZ79K1FIRVK05.q2 |com4in          |null    |null         |null             |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+
+[2023-08-04 17:34:28:1752392][http-nio-8887-exec-4] INFO  jdbc.sqltiming - SELECT
+            A.uuid,
+            A.name,
+            A.email,
+            A.password,
+            A.company_account,
+            A.user_id ,
+            B.company_name,
+            A.comforin_manager
+        FROM
+            USER_LIST A
+            LEFT JOIN COMPANY B ON B.company_account = A.company_account
+        WHERE A.email= 'yk.park@com4in.com'
+        ORDER BY A.create_date DESC
+ {executed in 4 msec}
+[2023-08-04 17:34:28:1752392][http-nio-8887-exec-4] INFO  jdbc.resultsettable - 
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|uuid                                 |name |email              |password                                                     |company_account |user_id |company_name |comforin_manager |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|c64ce725-6fb1-490e-ac10-6f592b2eced7 |박영광  |yk.park@com4in.com |$2a$10$EyOKMz67nPQ54Sm0Z9ktberIiJWKRAPeYINkFQZ79K1FIRVK05.q2 |com4in          |null    |null         |null             |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+
+[2023-08-04 17:34:28:1752399][http-nio-8887-exec-4] INFO  jdbc.sqltiming - SELECT
+            A.uuid,
+            A.name,
+            A.email,
+            A.password,
+            A.company_account,
+            A.user_id ,
+            B.company_name,
+            A.comforin_manager
+        FROM
+            USER_LIST A
+            LEFT JOIN COMPANY B ON B.company_account = A.company_account
+        WHERE A.email= 'yk.park@com4in.com'
+        ORDER BY A.create_date DESC
+ {executed in 4 msec}
+[2023-08-04 17:34:28:1752400][http-nio-8887-exec-4] INFO  jdbc.resultsettable - 
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|uuid                                 |name |email              |password                                                     |company_account |user_id |company_name |comforin_manager |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|c64ce725-6fb1-490e-ac10-6f592b2eced7 |박영광  |yk.park@com4in.com |$2a$10$EyOKMz67nPQ54Sm0Z9ktberIiJWKRAPeYINkFQZ79K1FIRVK05.q2 |com4in          |null    |null         |null             |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+
+[2023-08-04 17:34:42:1766521][http-nio-8887-exec-5] INFO  jdbc.sqltiming - SELECT
+            A.uuid,
+            A.name,
+            A.email,
+            A.password,
+            A.company_account,
+            A.user_id ,
+            B.company_name,
+            A.comforin_manager
+        FROM
+            USER_LIST A
+            LEFT JOIN COMPANY B ON B.company_account = A.company_account
+        WHERE A.email= 'yk.park@com4in.com'
+        ORDER BY A.create_date DESC
+ {executed in 4 msec}
+[2023-08-04 17:34:42:1766521][http-nio-8887-exec-5] INFO  jdbc.resultsettable - 
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|uuid                                 |name |email              |password                                                     |company_account |user_id |company_name |comforin_manager |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|c64ce725-6fb1-490e-ac10-6f592b2eced7 |박영광  |yk.park@com4in.com |$2a$10$EyOKMz67nPQ54Sm0Z9ktberIiJWKRAPeYINkFQZ79K1FIRVK05.q2 |com4in          |null    |null         |null             |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+
+[2023-08-04 17:34:42:1766526][http-nio-8887-exec-5] INFO  jdbc.sqltiming - SELECT
+            A.uuid,
+            A.name,
+            A.email,
+            A.password,
+            A.company_account,
+            A.user_id ,
+            B.company_name,
+            A.comforin_manager
+        FROM
+            USER_LIST A
+            LEFT JOIN COMPANY B ON B.company_account = A.company_account
+        WHERE A.email= 'yk.park@com4in.com'
+        ORDER BY A.create_date DESC
+ {executed in 2 msec}
+[2023-08-04 17:34:42:1766530][http-nio-8887-exec-5] INFO  jdbc.resultsettable - 
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|uuid                                 |name |email              |password                                                     |company_account |user_id |company_name |comforin_manager |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|c64ce725-6fb1-490e-ac10-6f592b2eced7 |박영광  |yk.park@com4in.com |$2a$10$EyOKMz67nPQ54Sm0Z9ktberIiJWKRAPeYINkFQZ79K1FIRVK05.q2 |com4in          |null    |null         |null             |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+
+[2023-08-04 17:34:42:1767080][http-nio-8887-exec-6] INFO  jdbc.sqltiming - /**********getIssueList**********/
+        SELECT
+            i.uuid,
+            i.title,
+            i.company_account,
+            i.req_level,
+            i.inquirer,
+            i.manager,
+            i.comp_req_date,
+            i.comp_date,
+            i.module,
+            i.create_id,
+            date_format(i.create_date, '%Y-%m-%d' ) as create_date,
+            i.update_id,
+            i.update_date,
+            i.req_type,
+            i.inquirer_email,
+            i.status_code,
+            (SELECT label FROM COMMON_CODE WHERE main_code ='A01' AND sub_code = i.status_code) AS status,
+            i.time_taken,
+            c.company_name,
+            u.name as manager_name
+        FROM
+            INCIDENT i
+            INNER JOIN
+                COMPANY c ON c.company_account=i.company_account
+            LEFT JOIN
+                USER_LIST u ON u.email = i.manager
+        WHERE
+            1=1
+            AND status_code != '60'
+
+                AND i.company_account ='bighitenteT1'
+
+            ORDER BY i.create_date DESC
+ {executed in 5 msec}
+[2023-08-04 17:34:42:1767080][http-nio-8887-exec-6] INFO  jdbc.resultsettable - 
+|-----|------|----------------|----------|---------|--------|--------------|----------|-------|----------|------------|----------|------------|---------|---------------|------------|-------|-----------|-------------|-----|
+|uuid |title |company_account |req_level |inquirer |manager |comp_req_date |comp_date |module |create_id |create_date |update_id |update_date |req_type |inquirer_email |status_code |status |time_taken |company_name |name |
+|-----|------|----------------|----------|---------|--------|--------------|----------|-------|----------|------------|----------|------------|---------|---------------|------------|-------|-----------|-------------|-----|
+|-----|------|----------------|----------|---------|--------|--------------|----------|-------|----------|------------|----------|------------|---------|---------------|------------|-------|-----------|-------------|-----|
+
+[2023-08-04 17:44:20:2345101][http-nio-8887-exec-8] INFO  jdbc.sqltiming - SELECT
+            A.uuid,
+            A.name,
+            A.email,
+            A.password,
+            A.company_account,
+            A.user_id ,
+            B.company_name,
+            A.comforin_manager
+        FROM
+            USER_LIST A
+            LEFT JOIN COMPANY B ON B.company_account = A.company_account
+        WHERE A.email= 'yk.park@com4in.com'
+        ORDER BY A.create_date DESC
+ {executed in 4 msec}
+[2023-08-04 17:44:20:2345103][http-nio-8887-exec-8] INFO  jdbc.resultsettable - 
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|uuid                                 |name |email              |password                                                     |company_account |user_id |company_name |comforin_manager |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|c64ce725-6fb1-490e-ac10-6f592b2eced7 |박영광  |yk.park@com4in.com |$2a$10$EyOKMz67nPQ54Sm0Z9ktberIiJWKRAPeYINkFQZ79K1FIRVK05.q2 |com4in          |null    |null         |null             |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+
+[2023-08-04 17:44:20:2345109][http-nio-8887-exec-8] INFO  jdbc.sqltiming - SELECT
+            A.uuid,
+            A.name,
+            A.email,
+            A.password,
+            A.company_account,
+            A.user_id ,
+            B.company_name,
+            A.comforin_manager
+        FROM
+            USER_LIST A
+            LEFT JOIN COMPANY B ON B.company_account = A.company_account
+        WHERE A.email= 'yk.park@com4in.com'
+        ORDER BY A.create_date DESC
+ {executed in 4 msec}
+[2023-08-04 17:44:20:2345110][http-nio-8887-exec-8] INFO  jdbc.resultsettable - 
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|uuid                                 |name |email              |password                                                     |company_account |user_id |company_name |comforin_manager |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|c64ce725-6fb1-490e-ac10-6f592b2eced7 |박영광  |yk.park@com4in.com |$2a$10$EyOKMz67nPQ54Sm0Z9ktberIiJWKRAPeYINkFQZ79K1FIRVK05.q2 |com4in          |null    |null         |null             |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+
+[2023-08-04 17:44:21:2345669][http-nio-8887-exec-9] INFO  jdbc.sqltiming - /**********getIssueList**********/
+        SELECT
+            i.uuid,
+            i.title,
+            i.company_account,
+            i.req_level,
+            i.inquirer,
+            i.manager,
+            i.comp_req_date,
+            i.comp_date,
+            i.module,
+            i.create_id,
+            date_format(i.create_date, '%Y-%m-%d' ) as create_date,
+            i.update_id,
+            i.update_date,
+            i.req_type,
+            i.inquirer_email,
+            i.status_code,
+            (SELECT label FROM COMMON_CODE WHERE main_code ='A01' AND sub_code = i.status_code) AS status,
+            i.time_taken,
+            c.company_name,
+            u.name as manager_name
+        FROM
+            INCIDENT i
+            INNER JOIN
+                COMPANY c ON c.company_account=i.company_account
+            LEFT JOIN
+                USER_LIST u ON u.email = i.manager
+        WHERE
+            1=1
+            AND status_code != '60'
+
+                AND i.company_account ='bighitenteT1'
+
+            ORDER BY i.create_date DESC
+ {executed in 4 msec}
+[2023-08-04 17:44:21:2345670][http-nio-8887-exec-9] INFO  jdbc.resultsettable - 
+|-----|------|----------------|----------|---------|--------|--------------|----------|-------|----------|------------|----------|------------|---------|---------------|------------|-------|-----------|-------------|-----|
+|uuid |title |company_account |req_level |inquirer |manager |comp_req_date |comp_date |module |create_id |create_date |update_id |update_date |req_type |inquirer_email |status_code |status |time_taken |company_name |name |
+|-----|------|----------------|----------|---------|--------|--------------|----------|-------|----------|------------|----------|------------|---------|---------------|------------|-------|-----------|-------------|-----|
+|-----|------|----------------|----------|---------|--------|--------------|----------|-------|----------|------------|----------|------------|---------|---------------|------------|-------|-----------|-------------|-----|
+
+[2023-08-04 17:45:42:2426990][http-nio-8887-exec-1] INFO  jdbc.sqltiming - SELECT
+            A.uuid,
+            A.name,
+            A.email,
+            A.password,
+            A.company_account,
+            A.user_id ,
+            B.company_name,
+            A.comforin_manager
+        FROM
+            USER_LIST A
+            LEFT JOIN COMPANY B ON B.company_account = A.company_account
+        WHERE A.email= 'yk.park@com4in.com'
+        ORDER BY A.create_date DESC
+ {executed in 4 msec}
+[2023-08-04 17:45:42:2426991][http-nio-8887-exec-1] INFO  jdbc.resultsettable - 
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|uuid                                 |name |email              |password                                                     |company_account |user_id |company_name |comforin_manager |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|c64ce725-6fb1-490e-ac10-6f592b2eced7 |박영광  |yk.park@com4in.com |$2a$10$EyOKMz67nPQ54Sm0Z9ktberIiJWKRAPeYINkFQZ79K1FIRVK05.q2 |com4in          |null    |null         |null             |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+
+[2023-08-04 17:45:42:2426995][http-nio-8887-exec-1] INFO  jdbc.sqltiming - SELECT
+            A.uuid,
+            A.name,
+            A.email,
+            A.password,
+            A.company_account,
+            A.user_id ,
+            B.company_name,
+            A.comforin_manager
+        FROM
+            USER_LIST A
+            LEFT JOIN COMPANY B ON B.company_account = A.company_account
+        WHERE A.email= 'yk.park@com4in.com'
+        ORDER BY A.create_date DESC
+ {executed in 2 msec}
+[2023-08-04 17:45:42:2426996][http-nio-8887-exec-1] INFO  jdbc.resultsettable - 
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|uuid                                 |name |email              |password                                                     |company_account |user_id |company_name |comforin_manager |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|c64ce725-6fb1-490e-ac10-6f592b2eced7 |박영광  |yk.park@com4in.com |$2a$10$EyOKMz67nPQ54Sm0Z9ktberIiJWKRAPeYINkFQZ79K1FIRVK05.q2 |com4in          |null    |null         |null             |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+
+[2023-08-04 17:45:43:2427547][http-nio-8887-exec-2] INFO  jdbc.sqltiming - /**********getIssueList**********/
+        SELECT
+            i.uuid,
+            i.title,
+            i.company_account,
+            i.req_level,
+            i.inquirer,
+            i.manager,
+            i.comp_req_date,
+            i.comp_date,
+            i.module,
+            i.create_id,
+            date_format(i.create_date, '%Y-%m-%d' ) as create_date,
+            i.update_id,
+            i.update_date,
+            i.req_type,
+            i.inquirer_email,
+            i.status_code,
+            (SELECT label FROM COMMON_CODE WHERE main_code ='A01' AND sub_code = i.status_code) AS status,
+            i.time_taken,
+            c.company_name,
+            u.name as manager_name
+        FROM
+            INCIDENT i
+            INNER JOIN
+                COMPANY c ON c.company_account=i.company_account
+            LEFT JOIN
+                USER_LIST u ON u.email = i.manager
+        WHERE
+            1=1
+            AND status_code != '60'
+
+                AND i.company_account ='bighitenteT1'
+
+            ORDER BY i.create_date DESC
+ {executed in 5 msec}
+[2023-08-04 17:45:43:2427547][http-nio-8887-exec-2] INFO  jdbc.resultsettable - 
+|-----|------|----------------|----------|---------|--------|--------------|----------|-------|----------|------------|----------|------------|---------|---------------|------------|-------|-----------|-------------|-----|
+|uuid |title |company_account |req_level |inquirer |manager |comp_req_date |comp_date |module |create_id |create_date |update_id |update_date |req_type |inquirer_email |status_code |status |time_taken |company_name |name |
+|-----|------|----------------|----------|---------|--------|--------------|----------|-------|----------|------------|----------|------------|---------|---------------|------------|-------|-----------|-------------|-----|
+|-----|------|----------------|----------|---------|--------|--------------|----------|-------|----------|------------|----------|------------|---------|---------------|------------|-------|-----------|-------------|-----|
+
+[2023-08-04 17:54:14:2939216][http-nio-8887-exec-4] INFO  jdbc.sqltiming - SELECT
+            A.uuid,
+            A.name,
+            A.email,
+            A.password,
+            A.company_account,
+            A.user_id ,
+            B.company_name,
+            A.comforin_manager
+        FROM
+            USER_LIST A
+            LEFT JOIN COMPANY B ON B.company_account = A.company_account
+        WHERE A.email= 'yk.park@com4in.com'
+        ORDER BY A.create_date DESC
+ {executed in 3 msec}
+[2023-08-04 17:54:14:2939217][http-nio-8887-exec-4] INFO  jdbc.resultsettable - 
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|uuid                                 |name |email              |password                                                     |company_account |user_id |company_name |comforin_manager |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|c64ce725-6fb1-490e-ac10-6f592b2eced7 |박영광  |yk.park@com4in.com |$2a$10$EyOKMz67nPQ54Sm0Z9ktberIiJWKRAPeYINkFQZ79K1FIRVK05.q2 |com4in          |null    |null         |null             |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+
+[2023-08-04 17:54:14:2939222][http-nio-8887-exec-4] INFO  jdbc.sqltiming - SELECT
+            A.uuid,
+            A.name,
+            A.email,
+            A.password,
+            A.company_account,
+            A.user_id ,
+            B.company_name,
+            A.comforin_manager
+        FROM
+            USER_LIST A
+            LEFT JOIN COMPANY B ON B.company_account = A.company_account
+        WHERE A.email= 'yk.park@com4in.com'
+        ORDER BY A.create_date DESC
+ {executed in 3 msec}
+[2023-08-04 17:54:14:2939223][http-nio-8887-exec-4] INFO  jdbc.resultsettable - 
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|uuid                                 |name |email              |password                                                     |company_account |user_id |company_name |comforin_manager |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|c64ce725-6fb1-490e-ac10-6f592b2eced7 |박영광  |yk.park@com4in.com |$2a$10$EyOKMz67nPQ54Sm0Z9ktberIiJWKRAPeYINkFQZ79K1FIRVK05.q2 |com4in          |null    |null         |null             |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+
+[2023-08-04 17:54:15:2939776][http-nio-8887-exec-5] INFO  jdbc.sqltiming - /**********getIssueList**********/
+        SELECT
+            i.uuid,
+            i.title,
+            i.company_account,
+            i.req_level,
+            i.inquirer,
+            i.manager,
+            i.comp_req_date,
+            i.comp_date,
+            i.module,
+            i.create_id,
+            date_format(i.create_date, '%Y-%m-%d' ) as create_date,
+            i.update_id,
+            i.update_date,
+            i.req_type,
+            i.inquirer_email,
+            i.status_code,
+            (SELECT label FROM COMMON_CODE WHERE main_code ='A01' AND sub_code = i.status_code) AS status,
+            i.time_taken,
+            c.company_name,
+            u.name as manager_name
+        FROM
+            INCIDENT i
+            INNER JOIN
+                COMPANY c ON c.company_account=i.company_account
+            LEFT JOIN
+                USER_LIST u ON u.email = i.manager
+        WHERE
+            1=1
+            AND status_code != '60'
+
+                AND i.company_account ='bighitenteT1'
+
+            ORDER BY i.create_date DESC
+ {executed in 5 msec}
+[2023-08-04 17:54:15:2939779][http-nio-8887-exec-5] INFO  jdbc.resultsettable - 
+|-----|------|----------------|----------|---------|--------|--------------|----------|-------|----------|------------|----------|------------|---------|---------------|------------|-------|-----------|-------------|-----|
+|uuid |title |company_account |req_level |inquirer |manager |comp_req_date |comp_date |module |create_id |create_date |update_id |update_date |req_type |inquirer_email |status_code |status |time_taken |company_name |name |
+|-----|------|----------------|----------|---------|--------|--------------|----------|-------|----------|------------|----------|------------|---------|---------------|------------|-------|-----------|-------------|-----|
+|-----|------|----------------|----------|---------|--------|--------------|----------|-------|----------|------------|----------|------------|---------|---------------|------------|-------|-----------|-------------|-----|
+

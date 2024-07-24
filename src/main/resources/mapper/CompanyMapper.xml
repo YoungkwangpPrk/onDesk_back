@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.com4in.itsm.mapper.CompanyMapper">
+
+    <insert id="createCompany" parameterType="com.com4in.itsm.dto.CompanyDto">
+        INSERT
+            INTO
+        COMPANY (
+            uuid
+            , company_name
+            , company_account
+            , mngmt_type
+            , operation_start_date
+            , operation_end_date
+            , create_date
+            , create_id
+            , update_date
+            , update_id
+        ) VALUES (
+            #{uuid}
+            , #{company_name}
+            , #{company_account}
+            , #{mngmt_type}
+            , #{operation_start_date}
+            , #{operation_end_date}
+            , date_format(NOW(), '%Y-%m-%d' )
+            , #{session_id}
+            , date_format(NOW(), '%Y-%m-%d' )
+            , #{session_id}
+        )
+    </insert>
+
+    <update id="updateCompany" parameterType="com.com4in.itsm.dto.CompanyDto">
+        UPDATE
+            COMPANY
+        SET
+            company_name = #{company_name}
+            , company_account = #{company_account}
+            , operation_start_date = #{operation_start_date}
+            , operation_end_date = #{operation_end_date}
+            , mngmt_type = #{mngmt_type}
+            , update_date = date_format(NOW(), '%Y-%m-%d' )
+            , update_id = #{session_id}
+        WHERE
+            uuid =#{uuid}
+    </update>
+
+    <select id="getCompany" parameterType="String" resultType="com.com4in.itsm.dto.CompanyDto">
+        select
+            *
+        from
+            COMPANY
+        where
+            company_account = #{company_account}
+    </select>
+
+    <select id="getCompanyList" parameterType="String" resultType="com.com4in.itsm.dto.CompanyDto">
+        SELECT
+            *
+        FROM
+            COMPANY
+        WHERE
+            company_account != 'com4in'
+    </select>
+
+    <delete id="deleteCompany" parameterType="com.com4in.itsm.dto.CompanyDto">
+        DELETE
+        FROM
+            COMPANY
+        WHERE
+            company_account = #{company_account}
+    </delete>
+
+</mapper>

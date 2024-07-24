@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.com4in.itsm.mapper.IssueMapper">
+
+    <insert id="insertIssue" parameterType="com.com4in.itsm.dto.IssueDto">
+        INSERT
+            INTO
+        INCIDENT (
+            uuid
+            , title
+            , company_account
+            , req_level
+            , inquirer
+            , manager
+            , comp_req_date
+            , comp_date
+            , module
+            , create_id
+            , req_type
+            , main_content
+            , status_code
+            , inquirer_email
+            , sap_incident_number
+            , result_content
+        ) VALUES (
+            #{uuid}
+            , #{title}
+            , #{company_account}
+            , #{req_level}
+            , #{inquirer}
+            , #{manager}
+            , #{comp_req_date}
+            , #{comp_date}
+            , #{module}
+            , #{session_id}
+            , #{req_type}
+            , #{main_content}
+            , #{status_code}
+            , #{inquirer_email}
+            , #{sap_incident_number}
+            , #{result_content}
+        )
+    </insert>
+
+    <select id="getIssueList" resultType="com.com4in.itsm.dto.IssueDto">
+        /**********getIssueList**********/
+        SELECT
+            i.uuid,
+            i.title,
+            i.company_account,
+            i.req_level,
+            i.inquirer,
+            i.manager,
+            i.comp_req_date,
+            i.comp_date,
+            i.module,
+            i.create_id,
+            date_format(i.create_date, '%Y-%m-%d' ) as create_date,
+            i.update_id,
+            i.update_date,
+            i.req_type,
+            i.inquirer_email,
+            i.status_code,
+            (SELECT label FROM COMMON_CODE WHERE main_code ='A01' AND sub_code = i.status_code) AS status,
+            i.time_taken,
+            c.company_name,
+            u.name as manager_name,
+            i.sap_incident_number,
+            i.result_content
+        FROM
+            INCIDENT i
+            INNER JOIN
+                COMPANY c ON c.company_account=i.company_account
+            LEFT JOIN
+                USER_LIST u ON u.email = i.manager
+        WHERE
+            1=1
+            AND status_code != '60'
+            <if test="company_account !='com4in'">
+                AND i.company_account =#{company_account}
+            </if>
+            ORDER BY i.create_date DESC
+    </select>
+
+    <select id="getIssueManagerList" resultType="com.com4in.itsm.dto.IssueDto">
+        SELECT
+            i.uuid,
+            i.title,
+            i.company_account,
+            i.req_level,
+            i.inquirer,
+            i.manager,
+            i.comp_req_date,
+            i.comp_date,
+            i.module,
+            i.create_id,
+            date_format(i.create_date, '%Y-%m-%d' ) as create_date,
+            i.update_id,
+            i.update_date,
+            i.req_type,
+            i.inquirer_email,
+            i.status_code,
+            (SELECT label FROM COMMON_CODE WHERE main_code ='A01' AND sub_code = i.status_code) AS status,
+            i.time_taken,
+            c.company_name,
+            u.name as manager_name,
+            i.sap_incident_number,
+            i.result_content
+        FROM
+            INCIDENT i
+            INNER JOIN
+                COMPANY c ON c.company_account=i.company_account
+            LEFT JOIN
+                USER_LIST u ON u.email = i.manager
+        WHERE
+            i.manager =#{manager}
+            AND i.status_code != '60'
+        ORDER BY i.create_date DESC
+    </select>
+
+    <select id="getIssueInquirerList" resultType="com.com4in.itsm.dto.IssueDto">
+        SELECT
+            i.uuid,
+            i.title,
+            i.company_account,
+            i.req_level,
+            i.inquirer,
+            i.manager,
+            i.comp_req_date,
+            i.comp_date,
+            i.module,
+            i.create_id,
+            date_format(i.create_date, '%Y-%m-%d' ) as create_date,
+            i.update_id,
+            i.update_date,
+            i.req_type,
+            i.inquirer_email,
+            i.status_code,
+            (SELECT label FROM COMMON_CODE WHERE main_code ='A01' AND sub_code = i.status_code) AS status,
+            i.time_taken,
+            c.company_name,
+            u.name as manager_name,
+            i.sap_incident_number,
+            i.result_content
+        FROM
+            INCIDENT i
+            INNER JOIN
+                COMPANY c ON c.company_account=i.company_account
+            LEFT JOIN
+                USER_LIST u ON u.email = i.manager
+        WHERE
+            i.create_id =#{session_id}
+            AND i.status_code != '60'
+        ORDER BY i.create_date DESC
+    </select>
+
+    <select id="getItems" resultType="com.com4in.itsm.dto.IssueDto">
+        	SELECT
+                i.uuid,
+                i.title,
+                i.company_account,
+                i.req_level,
+                i.inquirer,
+                i.manager,
+                i.comp_req_date,
+                i.comp_date ,
+                i.module ,
+                i.req_type ,
+                i.main_content ,
+                i.inquirer_email ,
+                i.status_code ,
+                (SELECT label FROM COMMON_CODE WHERE main_code ='A01' AND sub_code = i.status_code) AS status,
+                i.time_taken ,
+                c.company_name as company_name,
+                u.name as manager_name,
+                date_format(i.create_date, '%Y-%m-%d' ) as create_date,
+                i.create_id,
+                i.sap_incident_number,
+                i.result_content
+            FROM
+                INCIDENT i
+                INNER JOIN
+                    COMPANY c ON c.company_account=i.company_account
+                LEFT JOIN
+                    USER_LIST u ON u.email = i.manager
+            WHERE
+                i.uuid= #{uuid}
+    </select>
+
+    <update id="updateIssue" parameterType="com.com4in.itsm.dto.IssueDto">
+        UPDATE
+            INCIDENT
+        SET
+            title = #{title}
+            , company_account = #{company_account}
+            , req_level = #{req_level}
+            , inquirer = #{inquirer}
+            , manager = #{manager}
+            , status_code = #{status_code}
+            , comp_req_date = #{comp_req_date}
+            , comp_date = #{comp_date}
+            , module = #{module}
+            , update_id = #{session_id}
+            , update_date = date_format(NOW(), '%Y-%m-%d' )
+            , req_type = #{req_type}
+            , main_content = #{main_content}
+            , time_taken = #{time_taken}
+            , inquirer_email = #{inquirer_email}
+            , sap_incident_number = #{sap_incident_number}
+            , result_content = #{result_content}
+        WHERE
+            uuid = #{uuid}
+    </update>
+
+    <delete id="deleteIssue" parameterType="com.com4in.itsm.dto.IssueDto">
+        DELETE
+        FROM
+            INCIDENT
+        WHERE
+            uuid = #{uuid}
+    </delete>
+
+</mapper>

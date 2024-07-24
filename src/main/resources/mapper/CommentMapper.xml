@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.com4in.itsm.mapper.CommentMapper">
+
+    <insert id="createIssueComent" parameterType="com.com4in.itsm.dto.CommentDto">
+        INSERT
+            INTO
+            INCIDENT_COMMENT (
+                uuid
+                , incident_uuid
+                , writer
+                , content
+                , create_id
+            ) VALUES (
+                #{uuid}
+                , #{incident_uuid}
+                , #{writer}
+                , #{content}
+                , #{session_id}
+            )
+    </insert>
+
+    <select id="getComment" resultType="com.com4in.itsm.dto.CommentDto">
+        SELECT
+            A.*,
+            B.name
+        FROM
+            INCIDENT_COMMENT A
+            LEFT JOIN USER_LIST B ON B.email = A.writer
+        WHERE A.incident_uuid = #{incident_uuid}
+        ORDER BY A.create_date DESC
+    </select>
+
+    <update id="updateComment" parameterType="com.com4in.itsm.dto.CommentDto">
+        UPDATE
+            INCIDENT_COMMENT
+        SET
+            content = #{content}
+            , update_id = #{session_id}
+            , update_date = date_format(NOW(), '%Y-%m-%d' )
+        WHERE
+            uuid = #{uuid}
+    </update>
+
+    <delete id="deleteComment" parameterType="com.com4in.itsm.dto.CommentDto">
+        DELETE
+        FROM
+            INCIDENT_COMMENT
+        WHERE
+            uuid = #{uuid}
+    </delete>
+
+</mapper>

@@ -1,0 +1,54 @@
+server:
+  port : 8887
+spring:
+  sql:
+    init:
+      mode: never
+
+  datasource:
+    url: jdbc:log4jdbc:mariadb://121.66.27.172:5050/ITSM?useUnicode=true&characterEncoding=utf-8
+    driverClassName: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    username: root
+    password: Init@1234
+
+    #    url: jdbc:mariadb://121.66.27.172:5050/ITSM?useUnicode=true&characterEncoding=utf-8
+    #    driverClassName: org.mariadb.jdbc.Driver
+
+  security:
+    user:
+      name: tester
+
+  #swagger
+  mvc:
+    view:
+      suffix: .html
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+  #MultiPart
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+    #location: C:\\Users/ykPark/Downloads/itsm/src/main/resources/file
+
+mybatis:
+  mapper-locations: mapper/*.xml
+
+logging:
+  level:
+    me:
+      silvernine: DEBUG
+    jdbc:
+      sqlonly: off
+      sqltiming: info
+      resultsettable: info
+      audit: off
+
+      resultset: off
+      connection: off
+
+jwt:
+  header: Authorization
+  secret: c2lsdmVybmluZS10ZWNoLXNwcmluZy1ib290LWp3dC10dXRvcmlhbC1zZWNyZXQtc2lsdmVybmluZS10ZWNoLXNwcmluZy1ib290LWp3dC10dXRvcmlhbC1zZWNyZXQK
+  token-validity-in-seconds: 85000  #주석

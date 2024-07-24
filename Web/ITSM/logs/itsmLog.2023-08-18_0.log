@@ -1,0 +1,122 @@
+[2023-08-18 09:57:43:686][main] INFO  com.com4in.itsm.ItsmApplication - Starting ItsmApplication using Java 11.0.17 on DESKTOP-L0NBJRL with PID 12712 (D:\com4in\back\itsm\build\classes\java\main started by ykPark in D:\com4in\back\itsm)
+[2023-08-18 09:57:43:686][main] INFO  com.com4in.itsm.ItsmApplication - No active profile set, falling back to 1 default profile: "default"
+[2023-08-18 09:57:44:1874][main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$9064c23a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2023-08-18 09:57:44:1892][main] WARN  o.s.xml.DocumentBuilderFactoryUtils - http://javax.xml.XMLConstants/property/accessExternalDTD property not supported by org.apache.xerces.jaxp.DocumentBuilderFactoryImpl
+[2023-08-18 09:57:44:1892][main] WARN  o.s.xml.DocumentBuilderFactoryUtils - http://javax.xml.XMLConstants/property/accessExternalSchema property not supported by org.apache.xerces.jaxp.DocumentBuilderFactoryImpl
+[2023-08-18 09:57:44:1920][main] INFO  o.s.w.s.a.s.AnnotationActionEndpointMapping - Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+[2023-08-18 09:57:44:2182][main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8887 (http)
+[2023-08-18 09:57:44:2198][main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8887"]
+[2023-08-18 09:57:44:2199][main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+[2023-08-18 09:57:44:2199][main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+[2023-08-18 09:57:44:2349][main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[2023-08-18 09:57:44:2350][main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1617 ms
+[2023-08-18 09:57:45:3211][main] INFO  o.s.s.w.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@45849604, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6cbbfe29, org.springframework.security.web.context.SecurityContextPersistenceFilter@69d7bc1a, org.springframework.security.web.header.HeaderWriterFilter@16f4a3c0, org.springframework.web.filter.CorsFilter@25823192, org.springframework.security.web.authentication.logout.LogoutFilter@7d17906, com.com4in.itsm.jwt.JwtFilter@3df04fa1, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2862271a, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@4e51eda7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6e668322, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@75ee6f89, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5c25daad, org.springframework.security.web.session.SessionManagementFilter@45c408a4, org.springframework.security.web.access.ExceptionTranslationFilter@acd3460, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3e9b3b3c]
+[2023-08-18 09:57:45:3327][main] WARN  o.s.x.t.TransformerFactoryUtils - http://javax.xml.XMLConstants/property/accessExternalDTD property not supported by org.apache.xalan.processor.TransformerFactoryImpl
+[2023-08-18 09:57:45:3327][main] WARN  o.s.x.t.TransformerFactoryUtils - http://javax.xml.XMLConstants/property/accessExternalStylesheet property not supported by org.apache.xalan.processor.TransformerFactoryImpl
+[2023-08-18 09:57:45:3374][main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8887"]
+[2023-08-18 09:57:46:3396][main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8887 (http) with context path ''
+[2023-08-18 09:57:46:3696][main] INFO  com.com4in.itsm.ItsmApplication - Started ItsmApplication in 3.506 seconds (JVM running for 5.066)
+[2023-08-18 09:58:22:39539][http-nio-8887-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2023-08-18 09:58:22:39540][http-nio-8887-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[2023-08-18 09:58:22:39540][http-nio-8887-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+[2023-08-18 09:58:22:39622][http-nio-8887-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2023-08-18 09:58:22:39675][http-nio-8887-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2023-08-18 09:58:22:39690][http-nio-8887-exec-1] INFO  jdbc.sqltiming - SELECT
+            A.uuid,
+            A.name,
+            A.email,
+            A.password,
+            A.company_account,
+            A.user_id ,
+            B.company_name,
+            A.comforin_manager
+        FROM
+            USER_LIST A
+            LEFT JOIN COMPANY B ON B.company_account = A.company_account
+        WHERE A.email= 'yk.park@com4in.com'
+        ORDER BY A.create_date DESC
+ {executed in 0 msec}
+[2023-08-18 09:58:22:39706][http-nio-8887-exec-1] INFO  jdbc.resultsettable - 
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|uuid                                 |name |email              |password                                                     |company_account |user_id |company_name |comforin_manager |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|c64ce725-6fb1-490e-ac10-6f592b2eced7 |박영광  |yk.park@com4in.com |$2a$10$EyOKMz67nPQ54Sm0Z9ktberIiJWKRAPeYINkFQZ79K1FIRVK05.q2 |com4in          |null    |null         |null             |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+
+[2023-08-18 09:58:22:39807][http-nio-8887-exec-1] INFO  jdbc.sqltiming - SELECT
+            A.uuid,
+            A.name,
+            A.email,
+            A.password,
+            A.company_account,
+            A.user_id ,
+            B.company_name,
+            A.comforin_manager
+        FROM
+            USER_LIST A
+            LEFT JOIN COMPANY B ON B.company_account = A.company_account
+        WHERE A.email= 'yk.park@com4in.com'
+        ORDER BY A.create_date DESC
+ {executed in 0 msec}
+[2023-08-18 09:58:22:39807][http-nio-8887-exec-1] INFO  jdbc.resultsettable - 
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|uuid                                 |name |email              |password                                                     |company_account |user_id |company_name |comforin_manager |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+|c64ce725-6fb1-490e-ac10-6f592b2eced7 |박영광  |yk.park@com4in.com |$2a$10$EyOKMz67nPQ54Sm0Z9ktberIiJWKRAPeYINkFQZ79K1FIRVK05.q2 |com4in          |null    |null         |null             |
+|-------------------------------------|-----|-------------------|-------------------------------------------------------------|----------------|--------|-------------|-----------------|
+
+[2023-08-18 09:58:23:40607][http-nio-8887-exec-4] INFO  jdbc.sqltiming - /**********getIssueList**********/
+        SELECT
+            i.uuid,
+            i.title,
+            i.company_account,
+            i.req_level,
+            i.inquirer,
+            i.manager,
+            i.comp_req_date,
+            i.comp_date,
+            i.module,
+            i.create_id,
+            date_format(i.create_date, '%Y-%m-%d' ) as create_date,
+            i.update_id,
+            i.update_date,
+            i.req_type,
+            i.inquirer_email,
+            i.status_code,
+            (SELECT label FROM COMMON_CODE WHERE main_code ='A01' AND sub_code = i.status_code) AS status,
+            i.time_taken,
+            c.company_name,
+            u.name as manager_name,
+            i.sap_incident_number,
+            i.result_content
+        FROM
+            INCIDENT i
+            INNER JOIN
+                COMPANY c ON c.company_account=i.company_account
+            LEFT JOIN
+                USER_LIST u ON u.email = i.manager
+        WHERE
+            1=1
+            AND status_code != '60'
+
+                AND i.company_account ='bighitenteT1'
+
+            ORDER BY i.create_date DESC
+ {executed in 17 msec}
+[2023-08-18 09:58:23:40607][http-nio-8887-exec-4] INFO  jdbc.resultsettable - 
+|-------------------------------------|--------------------|----------------|----------|---------|------------------------|--------------|-----------|-------|------------------------|------------|------------------------|------------|---------|------------------------|------------|-------|-----------|-------------|-----|--------------------|---------------|
+|uuid                                 |title               |company_account |req_level |inquirer |manager                 |comp_req_date |comp_date  |module |create_id               |create_date |update_id               |update_date |req_type |inquirer_email          |status_code |status |time_taken |company_name |name |sap_incident_number |result_content |
+|-------------------------------------|--------------------|----------------|----------|---------|------------------------|--------------|-----------|-------|------------------------|------------|------------------------|------------|---------|------------------------|------------|-------|-----------|-------------|-----|--------------------|---------------|
+|47b2b43b-5f74-4441-b959-111aa408e841 |테스트입니다              |bighitenteT1    |보통(5일)    |테스트      |jukyung.sung@com4in.com |2023-08-18    |null       |EC     |test@user.com           |2023-08-11  |null                    |[unread]    |권한관리     |test@user.com           |10          |등록     |null       |하이브          |성주경  |null                |null           |
+|18810368-e8fe-4d2c-ab7a-45536c504d36 |테스트입니다              |bighitenteT1    |보통(5일)    |테스트      |jukyung.sung@com4in.com |2023-08-17    |null       |EC     |test@user.com           |2023-08-10  |jukyung.sung@com4in.com |[unread]    |권한관리     |test@user.com           |50          |처리완료   |00:30      |하이브          |성주경  |null                |null           |
+|db007d11-4299-4d58-a8b9-4934c3e4d054 |222                 |bighitenteT1    |보통(5일)    |테스트      |jukyung.sung@com4in.com |2023-08-17    |null       |EC     |test@user.com           |2023-08-10  |jukyung.sung@com4in.com |[unread]    |권한관리     |test@user.com           |30          |진행완료   |00:30      |하이브          |성주경  |null                |<p>재등록</p>     |
+|78e9f2cc-c0b3-4689-8b41-6923181b7518 |123123              |bighitenteT1    |보통(5일)    |테스트      |jukyung.sung@com4in.com |2023-08-17    |null       |EC     |test@user.com           |2023-08-10  |jukyung.sung@com4in.com |[unread]    |권한관리     |test@user.com           |30          |진행완료   |00:30      |하이브          |성주경  |null                |null           |
+|6944e043-b429-4775-8be6-2f0e8ec38004 |test                |bighitenteT1    |긴급(3일)    |성주경      |jukyung.sung@com4in.com |2023-08-15    |null       |EC     |jukyung.sung@com4in.com |2023-08-10  |null                    |[unread]    |권한관리     |jukyung.sung@com4in.com |10          |등록     |null       |하이브          |성주경  |12345               |               |
+|882cceb7-caa5-49e3-bd6e-02ed026ea745 |test                |bighitenteT1    |보통(5일)    |테스트      |yk.park@com4in.com      |2023-08-16    |null       |EC     |test@user.com           |2023-08-09  |yk.park@com4in.com      |[unread]    |권한관리     |test@user.com           |20          |진행중    |00         |하이브          |박영광  |null                |null           |
+|c76d7c6a-aebc-43c8-9909-a46d528fe240 |테스트 입니다.            |bighitenteT1    |보통(5일)    |테스트      |yk.park@com4in.com      |2023-08-16    |null       |EC     |test@user.com           |2023-08-09  |yk.park@com4in.com      |[unread]    |권한관리     |test@user.com           |30          |진행완료   |00:30      |하이브          |박영광  |null                |null           |
+|7836a3eb-2982-4e1f-8a68-b06e9c03fece |test of upload file |bighitenteT1    |보통(5일)    |테스트      |eunmin.cho@com4in.com   |2023-08-16    |null       |EC     |test@user.com           |2023-08-09  |eunmin.cho@com4in.com   |[unread]    |권한관리     |test@user.com           |20          |진행중    |00         |하이브          |조은민  |null                |null           |
+|6333ab9e-365d-4549-a086-b40ae8ab905c |test                |bighitenteT1    |보통(5일)    |테스트      |yk.park@com4in.com      |2023-08-15    |2023-08-08 |EC     |test@user.com           |2023-08-08  |test@user.com           |[unread]    |권한관리     |test@user.com           |50          |처리완료   |00:30      |하이브          |박영광  |null                |null           |
+|-------------------------------------|--------------------|----------------|----------|---------|------------------------|--------------|-----------|-------|------------------------|------------|------------------------|------------|---------|------------------------|------------|-------|-----------|-------------|-----|--------------------|---------------|
+
+[2023-08-18 12:39:42:9720270][HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=39m48s904ms388µs900ns).
+[2023-08-18 16:44:40:24417484][HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=14m54s88ms551µs300ns).

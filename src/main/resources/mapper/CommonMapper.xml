@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.com4in.itsm.mapper.CommonMapper">
+
+    <select id="getCommonCode" parameterType="String" resultType="com.com4in.itsm.dto.CommonCodeDto">
+        select
+            main_code,
+            sub_code,
+            label
+            from COMMON_CODE
+            where 1=1 and sub_code !='0' and use_yn = 'Y'
+            order by order_val
+    </select>
+
+</mapper>

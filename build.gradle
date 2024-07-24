@@ -1,0 +1,76 @@
+plugins {
+	id 'java'
+	id 'war'
+	id 'org.springframework.boot' version '2.7.9-SNAPSHOT'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com.com4in'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
+	maven { url 'https://repo.spring.io/snapshot' }
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-web-services'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.3.0'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+	annotationProcessor 'org.projectlombok:lombok'
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	//	jwt
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.11.5'
+	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.11.5'
+	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.11.5'
+
+	//	swagger
+	implementation 'io.springfox:springfox-boot-starter:3.0.0'
+
+	// slf4j & logback
+	implementation('org.slf4j:jcl-over-slf4j')
+	implementation('ch.qos.logback:logback-classic')
+
+	implementation group: 'commons-io', name: 'commons-io', version: '2.11.0'
+
+	implementation group: 'commons-codec', name: 'commons-codec', version: '1.15'
+	implementation group: 'joda-time', name: 'joda-time', version: '2.3'
+	implementation group: 'org.opensaml', name: 'opensaml', version: '2.5.1-1'
+
+	// https://mvnrepository.com/artifact/com.sun.mail/javax.mail
+	implementation group: 'com.sun.mail', name: 'javax.mail', version: '1.6.2'
+
+	// SQL query show
+	implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
+
+	implementation 'org.jsoup:jsoup:1.16.1'
+
+
+	//	swagger
+//	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+//	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+
+}
+
+jar {
+	manifest {
+		attributes 'Main-Class': 'com.com4in.itsm.ItsmApplication'
+	}
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
